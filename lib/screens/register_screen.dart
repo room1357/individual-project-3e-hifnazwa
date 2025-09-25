@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -6,7 +7,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Register'), backgroundColor: Colors.blue),
+      appBar: AppBar(title: Text('Daftar'), backgroundColor: Colors.blue),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -27,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
             // Full Name Field
             TextField(
               decoration: InputDecoration(
-                labelText: 'Full Name',
+                labelText: 'Nama Lengkap',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.person),
               ),
@@ -82,13 +83,17 @@ class RegisterScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Handle register
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: Text(
-                  'REGISTER',
+                  'DAFTAR',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -99,12 +104,13 @@ class RegisterScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an account? "),
+                Text("Sudah punya akun? "),
                 TextButton(
                   onPressed: () {
                     // Navigate to login
+                    Navigator.pop(context);
                   },
-                  child: Text('Login'),
+                  child: Text('Masuk'),
                 ),
               ],
             ),
