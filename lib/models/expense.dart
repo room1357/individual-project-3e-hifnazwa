@@ -22,4 +22,26 @@ class Expense {
   String get formattedDate {
     return '${date.day}/${date.month}/${date.year}';
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'amount': amount,
+      'category': category,
+      'date': date.toIso8601String(),
+      'description': description,
+    };
+  }
+
+  factory Expense.fromMap(Map<String, dynamic> map) {
+    return Expense(
+      id: map['id'],
+      title: map['title'],
+      amount: (map['amount'] as num).toDouble(),
+      category: map['category'],
+      date: DateTime.parse(map['date']),
+      description: map['description'] ?? '',
+    );
+  }
 }

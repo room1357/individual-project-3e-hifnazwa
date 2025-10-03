@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
 import 'expense_list_screen.dart';
+import 'profile_screen.dart';
+import 'settings_screen.dart';
+import 'add_expense_screen.dart';
+import 'statistics_screen.dart';
+import 'category_screen.dart';
+import 'edit_expense_screen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,6 +72,7 @@ class HomeScreen extends StatelessWidget {
               title: Text('Profile'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.pushNamed(context, '/profile');
               },
             ),
             ListTile(
@@ -72,6 +80,7 @@ class HomeScreen extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             Divider(),
@@ -113,9 +122,19 @@ class HomeScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => ExpenseListScreen()),
                     );
                   }),
-                  _buildDashboardCard('Profile', Icons.person, Colors.green, null),
+                  _buildDashboardCard('Profile', Icons.person, Colors.green, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    );
+                  }),
                   _buildDashboardCard('Messages', Icons.message, Colors.orange, null),
-                  _buildDashboardCard('Settings', Icons.settings, Colors.purple, null),
+                  _buildDashboardCard('Setting', Icons.settings, Colors.green, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsScreen()),
+                    );
+                  }),
                   _buildDashboardCard('Help', Icons.help, Colors.red, null),
                 ],
               ),

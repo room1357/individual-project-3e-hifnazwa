@@ -3,7 +3,7 @@ import 'register_screen.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key}) ;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            // Register Link
+            // Register Link!
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
